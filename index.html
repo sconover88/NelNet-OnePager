@@ -36,7 +36,6 @@
             line-height: 1.4;
             background: var(--white);
             width: 8.5in;
-            min-height: 11in;
             margin: 0 auto;
             padding: 0;
             font-size: 9pt;
@@ -46,24 +45,27 @@
         .header {
             background: var(--accent-1);
             color: var(--white);
-            padding: 20px 32px 16px;
+            padding: 28px 32px 24px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
         }
 
         .header-left h1 {
-            font-size: 16pt;
+            font-size: 22pt;
             font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 4px;
+            letter-spacing: -1px;
+            margin-bottom: 6px;
+            line-height: 1.1;
         }
 
         .header-left .subtitle {
-            font-size: 8.5pt;
-            font-weight: 300;
-            opacity: 0.9;
-            max-width: 480px;
+            font-size: 12pt;
+            font-weight: 600;
+            opacity: 1;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-2);
         }
 
         .header-right {
@@ -80,6 +82,12 @@
             letter-spacing: 1px;
         }
 
+        .header-right .date {
+            font-size: 8pt;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
         /* Metrics Banner */
         .metrics-banner {
             display: grid;
@@ -90,7 +98,7 @@
         }
 
         .metric-item {
-            padding: 12px 20px;
+            padding: 6px 16px;
             text-align: center;
             border-right: 1px solid var(--card-border);
         }
@@ -100,14 +108,14 @@
         }
 
         .metric-value {
-            font-size: 18pt;
+            font-size: 12pt;
             font-weight: 800;
             color: var(--primary);
             line-height: 1.1;
         }
 
         .metric-label {
-            font-size: 7pt;
+            font-size: 6.5pt;
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -117,10 +125,10 @@
 
         /* Main Content */
         .content {
-            padding: 16px 32px;
+            padding: 12px 32px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 12px;
         }
 
         .section {
@@ -139,10 +147,10 @@
         }
 
         .section p {
-            font-size: 8pt;
+            font-size: 7pt;
             color: var(--text-secondary);
-            line-height: 1.45;
-            margin-bottom: 6px;
+            line-height: 1.4;
+            margin-bottom: 4px;
         }
 
         .section ul {
@@ -151,11 +159,11 @@
         }
 
         .section ul li {
-            font-size: 8pt;
+            font-size: 7pt;
             color: var(--text-secondary);
-            padding: 2px 0 2px 12px;
+            padding: 1px 0 1px 12px;
             position: relative;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .section ul li::before {
@@ -213,7 +221,7 @@
         .path-chevrons {
             display: flex;
             align-items: stretch;
-            margin-bottom: 12px;
+            margin-bottom: 0;
         }
 
         .path-chevron {
@@ -265,11 +273,11 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 0;
-            margin-top: 8px;
+            margin-top: 4px;
         }
 
         .path-desc-item {
-            padding: 8px 12px;
+            padding: 4px 12px;
             text-align: center;
             border-right: 1px solid var(--card-border);
         }
@@ -308,7 +316,42 @@
             font-weight: 500;
         }
 
-        /* What We Need */
+        /* What This Means for Nelnet */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .outcome-card {
+            text-align: left;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: var(--light-bg);
+            border: 1px solid var(--card-border);
+        }
+
+        .outcome-card .outcome-icon {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .outcome-card .outcome-title {
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+            margin-bottom: 3px;
+        }
+
+        .outcome-card .outcome-desc {
+            font-size: 6.5pt;
+            color: var(--text-secondary);
+            line-height: 1.3;
+        }
         .needs-list {
             columns: 2;
             column-gap: 32px;
@@ -375,6 +418,10 @@
             body {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                width: 100%;
+            }
+            .content {
+                gap: 12px;
             }
         }
     </style>
@@ -385,23 +432,23 @@
     <div class="header">
         <div class="header-left">
             <h1>AI-First Delivery Lifecycle</h1>
-            <div class="subtitle">A complete, running AI execution platform — configured to Nelnet's SDLC, not designed from scratch. Response to Workstream 3 for NDS IT Delivery.</div>
+            <div class="subtitle">AI executes. People decide. Context compounds.</div>
         </div>
         <div class="header-right">
             <div class="brand">SLALOM</div>
-            June 2026
+            <div class="date">June 2026</div>
         </div>
     </div>
 
     <!-- METRICS BANNER -->
     <div class="metrics-banner">
         <div class="metric-item">
-            <div class="metric-value">244%</div>
-            <div class="metric-label">First-Year ROI (Anchor Client)</div>
+            <div class="metric-value">&lt;1 Day</div>
+            <div class="metric-label">Requirements Cycle Time (Previously Weeks)</div>
         </div>
         <div class="metric-item">
-            <div class="metric-value">&lt;1 Hour</div>
-            <div class="metric-label">Requirements Cycle Time (Previously Weeks)</div>
+            <div class="metric-value">60%</div>
+            <div class="metric-label">Reduction in Refactoring Time</div>
         </div>
         <div class="metric-item">
             <div class="metric-value">100%</div>
@@ -421,16 +468,35 @@
                 <li><strong>Multi-reviewer validation</strong> — Peer-reviewer agents challenge every AI output before human review</li>
                 <li><strong>Audit evidence as byproduct</strong> — Decision logs, traceability matrices, quality reports emitted automatically</li>
                 <li><strong>Profile-driven tailoring</strong> — NIST for Federal, consumer-financial for Commercial, isolated controls for restricted environments</li>
+                <li><strong>Adoption-led transformation</strong> — Embedded coaching, role-based enablement, and champion networks ensure teams don't just understand the lifecycle — they operate differently within it, sustained by a COE that drives continuous improvement</li>
             </ul>
 
-            <div class="quote-block">
-                <div class="quote-text">&ldquo;The lifecycle didn&rsquo;t replace how we work — it made what we already do faster, more consistent, and easier to scale.&rdquo;</div>
-                <div class="quote-attribution">— Delivery Director, Fortune-100 Telecom Client*</div>
-            </div>
         </div>
 
-        <!-- RIGHT COLUMN: Artifacts -->
+        <!-- RIGHT COLUMN: What We Need -->
         <div class="section">
+            <div class="section-title">What We Need from NDS IT Delivery</div>
+            <ul>
+                <li><strong>A pilot initiative</strong> with real scope and a real timeline</li>
+                <li><strong>A cross-IT steering committee</strong> with authority to approve process &amp; governance changes</li>
+                <li><strong>Access to documentation &amp; SMEs</strong> for context capture and configuration</li>
+                <li><strong>A change-management lead</strong> with access to the stakeholder landscape</li>
+                <li><strong>SME availability</strong> across the engagement for validation and feedback</li>
+            </ul>
+
+            <div class="section-title" style="margin-top: 12px;">The Compounding Advantage</div>
+            <p>As Nelnet operates within the lifecycle, organizational knowledge accumulates. Each initiative strengthens the next:</p>
+            <ul>
+                <li><strong>Requirements cycle time</strong> — reduced from weeks to less than a day</li>
+                <li><strong>Test planning</strong> — reduced from days to less than a day</li>
+                <li><strong>Evidence preparation</strong> — eliminated (emitted automatically)</li>
+                <li><strong>Refactoring time</strong> — 60% reduction across legacy codebases</li>
+                <li><strong>Adoption signal</strong> — teams apply the lifecycle to new initiatives without prompting</li>
+            </ul>
+        </div>
+
+        <!-- FULL WIDTH: Representative Outputs -->
+        <div class="section full-width">
             <div class="section-title">Representative Outputs</div>
             <p>Real, version-controlled work products emitted at every stage — not assembled for review:</p>
             <table class="artifacts-table">
@@ -447,11 +513,11 @@
                     </tr>
                     <tr>
                         <td>Requirements Decomposition</td>
-                        <td>Feature &rarr; Epic &rarr; Story &rarr; Dev Package, AI-generated</td>
+                        <td>Business Use Case &rarr; Epic &rarr; Story &rarr; Dev Package, AI-generated</td>
                     </tr>
                     <tr>
-                        <td>Traceability Matrix</td>
-                        <td>End-to-end mapping from requirements through test results</td>
+                        <td>Document History</td>
+                        <td>A recorded history of all changes made to the input data at every stage.</td>
                     </tr>
                     <tr>
                         <td>Quality Report</td>
@@ -462,15 +528,54 @@
                         <td>Multi-agent validation evidence for every AI output</td>
                     </tr>
                     <tr>
-                        <td>CMMI Evidence Bundle</td>
-                        <td>Practice areas mapped to workflow artifacts — appraisal-ready</td>
+                        <td>Contradiction Reconciliation</td>
+                        <td>Conflicts between new sources and finalized decisions are flagged and routed for review, keeping the original content intact.</td>
+                    </tr>
+                    <tr>
+                        <td>Provenance &amp; Source Traceability</td>
+                        <td>Each document includes a self-updating history of changes and a table linking every section to its original source, eliminating the need to manually build an audit trail.</td>
+                    </tr>
+                    <tr>
+                        <td>Decomposition Plan</td>
+                        <td>Each task is split into structured development packages, checked against the real codebase for accuracy, and approved by an engineering lead before any code is generated.</td>
+                    </tr>
+                    <tr>
+                        <td>Quality Report</td>
+                        <td>Test results are automatically generated and linked to specific requirements, giving the release approver clear, traceable evidence to review rather than a simple pass or fail.</td>
                     </tr>
                 </tbody>
             </table>
+        </div>
 
-            <div class="quote-block">
-                <div class="quote-text">&ldquo;We stopped assembling compliance evidence after the fact. The platform produces it as teams work.&rdquo;</div>
-                <div class="quote-attribution">— VP Engineering, Regulated Financial Services Client*</div>
+        <!-- FULL WIDTH: What This Means for Nelnet -->
+        <div class="section full-width">
+            <div class="section-title">What This Means for Nelnet</div>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <img class="outcome-icon" src="time.svg" alt="Faster Time to Market">
+                    <div class="outcome-title">Faster Time to Market</div>
+                    <div class="outcome-desc">Governance &amp; approval cycles compressed, not bypassed</div>
+                </div>
+                <div class="outcome-card">
+                    <img class="outcome-icon" src="strong.svg" alt="Stronger Governance">
+                    <div class="outcome-title">Stronger Governance</div>
+                    <div class="outcome-desc">Every output validated; every decision logged &amp; traceable</div>
+                </div>
+                <div class="outcome-card">
+                    <img class="outcome-icon" src="compliance.svg" alt="Compliance Built In">
+                    <div class="outcome-title">Compliance Built In</div>
+                    <div class="outcome-desc">Audit evidence generated in-flight, not assembled after</div>
+                </div>
+                <div class="outcome-card">
+                    <img class="outcome-icon" src="compounds.svg" alt="Compounds Over Time">
+                    <div class="outcome-title">Compounds Over Time</div>
+                    <div class="outcome-desc">Each initiative makes the next one faster &amp; more consistent</div>
+                </div>
+                <div class="outcome-card">
+                    <img class="outcome-icon" src="handshake.svg" alt="Nelnet Owns It">
+                    <div class="outcome-title">Nelnet Owns It</div>
+                    <div class="outcome-desc">COE, playbooks &amp; champions sustain it after engagement ends</div>
+                </div>
             </div>
         </div>
 
@@ -493,64 +598,25 @@
             </div>
             <div class="path-descriptions">
                 <div class="path-desc-item">
-                    <p>Aligns on outcomes and direction; while translating the model into Nelnet's environment so teams can apply it in practice.</p>
+                    <p>Teams understand the model, leadership aligns on success criteria, and the platform is configured to Nelnet's environment — ready for real work.</p>
                 </div>
                 <div class="path-desc-item">
-                    <p>Applies the lifecycle to real delivery work, building confidence and validating performance in practice.</p>
+                    <p>Delivery speed, quality, and governance improve on a real initiative — with measurable results that justify enterprise investment.</p>
                 </div>
                 <div class="path-desc-item">
-                    <p>Extends the lifecycle across teams and embeds it as the standard way of working.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- FULL WIDTH: What We Need -->
-        <div class="section full-width">
-            <div class="section-title">What We Need from NDS IT Delivery</div>
-            <ul class="needs-list">
-                <li><strong>A pilot initiative</strong> with real scope and a real timeline</li>
-                <li><strong>A cross-IT steering committee</strong> with authority to approve process &amp; governance changes</li>
-                <li><strong>Access to documentation &amp; SMEs</strong> for context capture and configuration</li>
-                <li><strong>A change-management lead</strong> with access to the stakeholder landscape</li>
-                <li><strong>SME availability</strong> across the engagement for validation and feedback</li>
-            </ul>
-        </div>
-
-        <!-- FULL WIDTH: Compounding -->
-        <div class="section full-width">
-            <div class="section-title">The Compounding Advantage</div>
-            <p>As Nelnet operates within the lifecycle, organizational knowledge accumulates. Each initiative strengthens the next. Teams ramp faster, require less support, and operate with increasing confidence.</p>
-            <div class="compounding-metrics">
-                <div class="compound-item">
-                    <div class="val">&lt;1 Hour</div>
-                    <div class="lbl">Requirements (was weeks)</div>
-                </div>
-                <div class="compound-item">
-                    <div class="val">&lt;1 Hour</div>
-                    <div class="lbl">Test Planning (was days)</div>
-                </div>
-                <div class="compound-item">
-                    <div class="val">Eliminated</div>
-                    <div class="lbl">Evidence Prep</div>
-                </div>
-                <div class="compound-item">
-                    <div class="val">244%</div>
-                    <div class="lbl">Year-1 ROI</div>
-                </div>
-                <div class="compound-item">
-                    <div class="val">Organic</div>
-                    <div class="lbl">Adoption Signal</div>
+                    <p>The lifecycle becomes Nelnet's standard way of working — self-sustaining, continuously improving, and compounding value with every initiative.</p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (hidden for now)
     <div class="footer">
-        <div class="footer-left">*Client quotes representative of engagement outcomes. Specific attributions available upon request. | Confidential — Prepared for Nelnet NDS IT Delivery</div>
+        <div class="footer-left">Confidential — Prepared for Nelnet NDS IT Delivery</div>
         <div class="footer-right">slalom.com</div>
     </div>
+    -->
 
 </body>
 </html>
