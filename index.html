@@ -6,15 +6,16 @@
     <title>Slalom AI-First Delivery Lifecycle | Nelnet NDS IT Delivery</title>
     <style>
         :root {
-            --nelnet-green: #4a8c2a;
-            --nelnet-teal: #007b8a;
-            --nelnet-dark: #1a2b3c;
-            --slalom-blue: #0c2340;
-            --accent-green: #5ba832;
-            --light-bg: #f7faf5;
-            --card-border: #e0ebe0;
-            --text-primary: #1a2b3c;
-            --text-secondary: #4a5568;
+            --primary: #0C62FB;
+            --accent-1: #002faf;
+            --accent-2: #1be1f2;
+            --accent-3: #ff4d5f;
+            --accent-4: #c789ff;
+            --accent-5: #deff4d;
+            --light-bg: #f4f7ff;
+            --card-border: #d8e2f8;
+            --text-primary: #1a1f2e;
+            --text-secondary: #4a5068;
             --white: #ffffff;
         }
 
@@ -43,7 +44,7 @@
 
         /* Header */
         .header {
-            background: var(--slalom-blue);
+            background: var(--accent-1);
             color: var(--white);
             padding: 20px 32px 16px;
             display: flex;
@@ -85,7 +86,7 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 0;
             background: var(--light-bg);
-            border-bottom: 2px solid var(--accent-green);
+            border-bottom: 2px solid var(--primary);
         }
 
         .metric-item {
@@ -101,7 +102,7 @@
         .metric-value {
             font-size: 18pt;
             font-weight: 800;
-            color: var(--nelnet-green);
+            color: var(--primary);
             line-height: 1.1;
         }
 
@@ -131,8 +132,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: var(--nelnet-teal);
-            border-bottom: 1.5px solid var(--nelnet-teal);
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--primary);
             padding-bottom: 3px;
             margin-bottom: 8px;
         }
@@ -161,7 +162,7 @@
             content: "\25B8";
             position: absolute;
             left: 0;
-            color: var(--accent-green);
+            color: var(--primary);
             font-weight: bold;
         }
 
@@ -182,7 +183,7 @@
         }
 
         .artifacts-table th {
-            background: var(--nelnet-teal);
+            background: var(--accent-1);
             color: var(--white);
             padding: 4px 8px;
             text-align: left;
@@ -209,49 +210,85 @@
         }
 
         /* Path Forward */
-        .path-grid {
+        .path-chevrons {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 12px;
+        }
+
+        .path-chevron {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px 12px 28px;
+            color: var(--white);
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+        }
+
+        .path-chevron:first-child {
+            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%);
+            padding-left: 16px;
+        }
+
+        .path-chevron:nth-child(1) {
+            background: var(--primary);
+        }
+
+        .path-chevron:nth-child(2) {
+            background: var(--accent-1);
+        }
+
+        .path-chevron:nth-child(3) {
+            background: var(--accent-2);
+            color: var(--text-primary);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%);
+        }
+
+        .path-chevron .chevron-title {
+            font-size: 10pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .path-chevron .chevron-subtitle {
+            font-size: 7pt;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-top: 1px;
+        }
+
+        .path-descriptions {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
+            gap: 0;
+            margin-top: 8px;
         }
 
-        .path-card {
-            background: var(--light-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 6px;
-            padding: 10px 12px;
-            position: relative;
-            border-top: 3px solid var(--accent-green);
+        .path-desc-item {
+            padding: 8px 12px;
+            text-align: center;
+            border-right: 1px solid var(--card-border);
         }
 
-        .path-card .phase-label {
-            font-size: 7pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--nelnet-green);
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+        .path-desc-item:last-child {
+            border-right: none;
         }
 
-        .path-card p {
+        .path-desc-item p {
             font-size: 7.5pt;
             color: var(--text-secondary);
             line-height: 1.4;
             margin: 0;
         }
 
-        .path-card .outcome {
-            font-size: 7pt;
-            color: var(--nelnet-teal);
-            font-weight: 600;
-            margin-top: 4px;
-            font-style: italic;
-        }
-
         /* Quote */
         .quote-block {
-            background: var(--light-bg);
-            border-left: 3px solid var(--accent-green);
+            background: #eef4ff;
+            border-left: 3px solid var(--accent-1);
             padding: 8px 12px;
             margin: 10px 0 0;
             border-radius: 0 4px 4px 0;
@@ -273,18 +310,20 @@
 
         /* What We Need */
         .needs-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4px 16px;
+            columns: 2;
+            column-gap: 32px;
         }
 
         .needs-list li {
             font-size: 7.5pt !important;
+            padding-top: 2px !important;
+            padding-bottom: 2px !important;
+            break-inside: avoid;
         }
 
         /* Footer */
         .footer {
-            background: var(--slalom-blue);
+            background: var(--accent-1);
             color: var(--white);
             padding: 10px 32px;
             display: flex;
@@ -323,7 +362,7 @@
         .compound-item .val {
             font-size: 8pt;
             font-weight: 700;
-            color: var(--nelnet-green);
+            color: var(--primary);
         }
 
         .compound-item .lbl {
@@ -438,24 +477,31 @@
         <!-- FULL WIDTH: Path Forward -->
         <div class="section full-width">
             <div class="section-title">Recommended Path Forward</div>
-            <div class="path-grid">
-                <div class="path-card">
-                    <div class="phase-label">&#9312; Setup</div>
-                    <p>Survey Nelnet's SDLC structure, vocabulary, gates, roles, and regulatory profile. Co-design change-communications plan. Identify pilot candidate.</p>
-                    <div class="outcome">&rarr; Platform configured to Nelnet's reality</div>
+            <div class="path-chevrons">
+                <div class="path-chevron">
+                    <div class="chevron-title">Setup</div>
+                    <div class="chevron-subtitle">Clarity + Alignment</div>
                 </div>
-                <div class="path-card">
-                    <div class="phase-label">&#9313; Pilot</div>
-                    <p>One real initiative delivered through the lifecycle. Coaching alongside a Nelnet pod. Real artifacts, real gates, real evidence.</p>
-                    <div class="outcome">&rarr; Go/no-go proven in your environment</div>
+                <div class="path-chevron">
+                    <div class="chevron-title">Pilot</div>
+                    <div class="chevron-subtitle">Measurable Improvement</div>
                 </div>
-                <div class="path-card">
-                    <div class="phase-label">&#9314; Scale</div>
-                    <p>Replicate the playbook across teams. Stand up Center of Excellence to own AIDLC evolution. Metrics framework drives investment.</p>
-                    <div class="outcome">&rarr; Self-sustaining, Nelnet-owned model</div>
+                <div class="path-chevron">
+                    <div class="chevron-title">Scale</div>
+                    <div class="chevron-subtitle">Enterprise Value + Compounding Adoption</div>
                 </div>
             </div>
-            <p style="font-size: 7.5pt; color: var(--text-secondary); margin-top: 6px;"><strong>Why this sequence:</strong> The model is proven in delivery, not in design. Teams adopt by doing real work. As context accumulates, each initiative makes the next one faster and more consistent.</p>
+            <div class="path-descriptions">
+                <div class="path-desc-item">
+                    <p>Aligns on outcomes and direction; while translating the model into Nelnet's environment so teams can apply it in practice.</p>
+                </div>
+                <div class="path-desc-item">
+                    <p>Applies the lifecycle to real delivery work, building confidence and validating performance in practice.</p>
+                </div>
+                <div class="path-desc-item">
+                    <p>Extends the lifecycle across teams and embeds it as the standard way of working.</p>
+                </div>
+            </div>
         </div>
 
         <!-- FULL WIDTH: What We Need -->
