@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slalom AI-First Delivery Lifecycle | Nelnet NDS IT Delivery</title>
+    <style>
+        :root {
+            --nelnet-green: #4a8c2a;
+            --nelnet-teal: #007b8a;
+            --nelnet-dark: #1a2b3c;
+            --slalom-blue: #0c2340;
+            --accent-green: #5ba832;
+            --light-bg: #f7faf5;
+            --card-border: #e0ebe0;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5568;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Avenir LT Pro', 'Avenir Next', 'Avenir', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.4;
+            background: var(--white);
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 9pt;
+        }
+
+        /* Header */
+        .header {
+            background: var(--slalom-blue);
+            color: var(--white);
+            padding: 20px 32px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .header-left h1 {
+            font-size: 16pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+        }
+
+        .header-left .subtitle {
+            font-size: 8.5pt;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 480px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 7.5pt;
+            opacity: 0.8;
+            padding-top: 4px;
+        }
+
+        .header-right .brand {
+            font-size: 10pt;
+            font-weight: 700;
+            opacity: 1;
+            letter-spacing: 1px;
+        }
+
+        /* Metrics Banner */
+        .metrics-banner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+            background: var(--light-bg);
+            border-bottom: 2px solid var(--accent-green);
+        }
+
+        .metric-item {
+            padding: 12px 20px;
+            text-align: center;
+            border-right: 1px solid var(--card-border);
+        }
+
+        .metric-item:last-child {
+            border-right: none;
+        }
+
+        .metric-value {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--nelnet-green);
+            line-height: 1.1;
+        }
+
+        .metric-label {
+            font-size: 7pt;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 16px 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .section {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--nelnet-teal);
+            border-bottom: 1.5px solid var(--nelnet-teal);
+            padding-bottom: 3px;
+            margin-bottom: 8px;
+        }
+
+        .section p {
+            font-size: 8pt;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            margin-bottom: 6px;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            font-size: 8pt;
+            color: var(--text-secondary);
+            padding: 2px 0 2px 12px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .section ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .section ul li strong {
+            color: var(--text-primary);
+        }
+
+        /* Full width sections */
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* Artifacts Table */
+        .artifacts-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 7.5pt;
+        }
+
+        .artifacts-table th {
+            background: var(--nelnet-teal);
+            color: var(--white);
+            padding: 4px 8px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 7pt;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .artifacts-table td {
+            padding: 3px 8px;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+
+        .artifacts-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .artifacts-table td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+        }
+
+        /* Path Forward */
+        .path-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+        }
+
+        .path-card {
+            background: var(--light-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 10px 12px;
+            position: relative;
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .path-card .phase-label {
+            font-size: 7pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--nelnet-green);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .path-card p {
+            font-size: 7.5pt;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .path-card .outcome {
+            font-size: 7pt;
+            color: var(--nelnet-teal);
+            font-weight: 600;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* Quote */
+        .quote-block {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #edf5e8 100%);
+            border-left: 3px solid var(--accent-green);
+            padding: 8px 12px;
+            margin: 10px 0 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .quote-block .quote-text {
+            font-size: 8pt;
+            font-style: italic;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .quote-block .quote-attribution {
+            font-size: 7pt;
+            color: var(--text-secondary);
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        /* What We Need */
+        .needs-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 16px;
+        }
+
+        .needs-list li {
+            font-size: 7.5pt !important;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slalom-blue);
+            color: var(--white);
+            padding: 10px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-top: auto;
+        }
+
+        .footer-left {
+            font-size: 7pt;
+            opacity: 0.7;
+        }
+
+        .footer-right {
+            font-size: 7.5pt;
+            font-weight: 600;
+        }
+
+        /* Compounding section */
+        .compounding-metrics {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .compound-item {
+            text-align: center;
+            padding: 6px 4px;
+            background: var(--light-bg);
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+        }
+
+        .compound-item .val {
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--nelnet-green);
+        }
+
+        .compound-item .lbl {
+            font-size: 6.5pt;
+            color: var(--text-secondary);
+            margin-top: 1px;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-left">
+            <h1>AI-First Delivery Lifecycle</h1>
+            <div class="subtitle">A complete, running AI execution platform — configured to Nelnet's SDLC, not designed from scratch. Response to Workstream 3 for NDS IT Delivery.</div>
+        </div>
+        <div class="header-right">
+            <div class="brand">SLALOM</div>
+            June 2026
+        </div>
+    </div>
+
+    <!-- METRICS BANNER -->
+    <div class="metrics-banner">
+        <div class="metric-item">
+            <div class="metric-value">244%</div>
+            <div class="metric-label">First-Year ROI (Anchor Client)</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">Weeks → Hours</div>
+            <div class="metric-label">Requirements Cycle Time</div>
+        </div>
+        <div class="metric-item">
+            <div class="metric-value">100%</div>
+            <div class="metric-label">Requirements-to-Test Traceability</div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- LEFT COLUMN: How It Works -->
+        <div class="section">
+            <div class="section-title">Our Core Approach</div>
+            <p>AI generates the work product at every stage. Peer-reviewer agents validate before human eyes see it. Named roles own every gate. Governance evidence emits as a byproduct of delivery — not assembled after the fact.</p>
+            <p>The platform overlays the SDLC Nelnet already runs — preserving your six-stage NAM structure, entry/exit gates, and Scheduled Releases cadence. Three properties keep it safe at scale:</p>
+            <ul>
+                <li><strong>Multi-reviewer validation</strong> — Peer-reviewer agents challenge every AI output before human review</li>
+                <li><strong>Audit evidence as byproduct</strong> — Decision logs, traceability matrices, quality reports emitted automatically</li>
+                <li><strong>Profile-driven tailoring</strong> — NIST for Federal, consumer-financial for Commercial, isolated controls for restricted environments</li>
+            </ul>
+
+            <div class="quote-block">
+                <div class="quote-text">"The lifecycle didn't replace how we work — it made what we already do faster, more consistent, and easier to scale."</div>
+                <div class="quote-attribution">— Delivery Director, Fortune-100 Telecom Client*</div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Artifacts -->
+        <div class="section">
+            <div class="section-title">Representative Outputs</div>
+            <p>Real, version-controlled work products emitted at every stage — not assembled for review:</p>
+            <table class="artifacts-table">
+                <thead>
+                    <tr>
+                        <th>Artifact</th>
+                        <th>What It Proves</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Decision Log</td>
+                        <td>Cumulative decisions with category traces & downstream impact</td>
+                    </tr>
+                    <tr>
+                        <td>Requirements Decomposition</td>
+                        <td>Feature → Epic → Story → Dev Package, AI-generated</td>
+                    </tr>
+                    <tr>
+                        <td>Traceability Matrix</td>
+                        <td>End-to-end mapping from requirements through test results</td>
+                    </tr>
+                    <tr>
+                        <td>Quality Report</td>
+                        <td>PASS/WARN/FAIL verdicts per gate with gap analysis</td>
+                    </tr>
+                    <tr>
+                        <td>Peer-Review Records</td>
+                        <td>Multi-agent validation evidence for every AI output</td>
+                    </tr>
+                    <tr>
+                        <td>CMMI Evidence Bundle</td>
+                        <td>Practice areas mapped to workflow artifacts — appraisal-ready</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="quote-block">
+                <div class="quote-text">"We stopped assembling compliance evidence after the fact. The platform produces it as teams work."</div>
+                <div class="quote-attribution">— VP Engineering, Regulated Financial Services Client*</div>
+            </div>
+        </div>
+
+        <!-- FULL WIDTH: Path Forward -->
+        <div class="section full-width">
+            <div class="section-title">Recommended Path Forward</div>
+            <div class="path-grid">
+                <div class="path-card">
+                    <div class="phase-label">① Setup</div>
+                    <p>Survey Nelnet's SDLC structure, vocabulary, gates, roles, and regulatory profile. Co-design change-communications plan. Identify pilot candidate.</p>
+                    <div class="outcome">→ Platform configured to Nelnet's reality</div>
+                </div>
+                <div class="path-card">
+                    <div class="phase-label">② Pilot</div>
+                    <p>One real initiative delivered through the lifecycle. Coaching alongside a Nelnet pod. Real artifacts, real gates, real evidence.</p>
+                    <div class="outcome">→ Go/no-go proven in your environment</div>
+                </div>
+                <div class="path-card">
+                    <div class="phase-label">③ Scale</div>
+                    <p>Replicate the playbook across teams. Stand up Center of Excellence to own AIDLC evolution. Metrics framework drives investment.</p>
+                    <div class="outcome">→ Self-sustaining, Nelnet-owned model</div>
+                </div>
+            </div>
+            <p style="font-size: 7.5pt; color: var(--text-secondary); margin-top: 6px;"><strong>Why this sequence:</strong> The model is proven in delivery, not in design. Teams adopt by doing real work. As context accumulates, each initiative makes the next one faster and more consistent.</p>
+        </div>
+
+        <!-- FULL WIDTH: What We Need -->
+        <div class="section full-width">
+            <div class="section-title">What We Need from NDS IT Delivery</div>
+            <ul class="needs-list">
+                <li><strong>A pilot initiative</strong> with real scope and a real timeline</li>
+                <li><strong>A cross-IT steering committee</strong> with authority to approve process & governance changes</li>
+                <li><strong>Access to documentation & SMEs</strong> for context capture and configuration</li>
+                <li><strong>A change-management lead</strong> with access to the stakeholder landscape</li>
+                <li><strong>SME availability</strong> across the engagement for validation and feedback</li>
+            </ul>
+        </div>
+
+        <!-- FULL WIDTH: Compounding -->
+        <div class="section full-width">
+            <div class="section-title">The Compounding Advantage</div>
+            <p>As Nelnet operates within the lifecycle, organizational knowledge accumulates. Each initiative strengthens the next. Teams ramp faster, require less support, and operate with increasing confidence.</p>
+            <div class="compounding-metrics">
+                <div class="compound-item">
+                    <div class="val">Weeks → &lt;1hr</div>
+                    <div class="lbl">Requirements</div>
+                </div>
+                <div class="compound-item">
+                    <div class="val">Days → &lt;1hr</div>
+                    <div class="lbl">Test Planning</div>
+                </div>
+                <div class="compound-item">
+                    <div class="val">Eliminated</div>
+                    <div class="lbl">Evidence Prep</div>
+                </div>
+                <div class="compound-item">
+                    <div class="val">244%</div>
+                    <div class="lbl">Year-1 ROI</div>
+                </div>
+                <div class="compound-item">
+                    <div class="val">Organic</div>
+                    <div class="lbl">Adoption Signal</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-left">*Client quotes representative of engagement outcomes. Specific attributions available upon request. | Confidential — Prepared for Nelnet NDS IT Delivery</div>
+        <div class="footer-right">slalom.com</div>
+    </div>
+
+</body>
+</html>
